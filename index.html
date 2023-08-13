@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmanuel Varghese - PortFolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* background-color: #1F1F1F; */
+            background-image: linear-gradient(to left, #030303, #1f124e, #030303, #1F1F1F);
+            /* background-image: url("dark\ luxury.png"); #1a124e */
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 70px;
+            /* background-color: rgb(86, 86, 219); */
+            /* background-color: #000046; */
+            background-image: linear-gradient(to, #000046,
+                    #0b6c87);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 23px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul li a:hover {
+            color: rgb(177, 177, 245);
+            font-size: 1.02rem;
+        }
+
+        main hr {
+            border: 0;
+            background: rgb(249, 249, 249);
+            height: 2px;
+            margin: 40px 80px;
+        }
+
+        .left {
+            font-size: 1.5rem;
+        }
+
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 100px 0;
+        }
+
+        .firstSection>div {
+            width: 30%;
+        }
+
+        .leftSection {
+            font-size: 3rem;
+            /* margin: 70px 0; */
+            color: white;
+        }
+
+        .leftSection .buttons {
+            padding: 50px 0;
+            align-items: flex-start;
+        }
+
+        .leftSection .btn {
+            font-size: 3rem;
+            /* margin: 70px 0; */
+            color: black;
+            background: #ffcc00;
+            padding: 12px;
+            font-size: 20px;
+            border: 2px solid white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .rightSection img {
+            width: 100%;
+            border-radius: 290px;
+            /* margin: 50px 0; */
+        }
+
+        .yellow {
+            color: #ffcc00;
+        }
+
+        .purple {
+            color: rgb(86, 86, 219);
+        }
+
+        .text-gray {
+            color: grey;
+        }
+
+        .text-purple {
+            color: rgb(241, 241, 244);
+            font-weight: bold;
+        }
+
+        #element {
+            color: #ffcc00;
+
+        }
+
+        .SecondSection {
+            max-width: 80vw;
+            margin: auto;
+            height: 80vh;
+        }
+
+        .SecondSection h1 {
+            font-size: 1.9rem;
+            color: #ffcc00;
+        }
+
+        .SecondSection .box {
+            background: white;
+            width: 80vw;
+            height: 2px;
+            margin: 56px 0;
+            display: flex;
+        }
+
+        .SecondSection .vertical {
+            height: 93px;
+            width: 1px;
+            background-color: white;
+            margin: 0 210px;
+        }
+
+        .image-top {
+            width: 23px;
+            position: relative;
+            top: -30px;
+            left: -12px;
+        }
+
+        .vertical-title {
+            position: relative;
+            top: 75px;
+            width: 220px;
+        }
+
+        .vertical-desc {
+            position: relative;
+            top: 100px;
+            color: rgb(234, 234, 240);
+            width: 300px;
+            font-size: 14px;
+        }
+
+        .ThirdSection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 56px 0;
+            height: 20vh;
+        }
+
+        .ThirdSection h1 {
+            font-size: 1.9rem;
+            position: relative;
+            top: -100px;
+            left: 130px;
+            bottom: 40 px;
+            padding: 40px 20px;
+            color: #ffcc00;
+        }
+
+        .ThirdSection>div {
+            width: 100%;
+        }
+
+        .tSection {
+            font-size: 1.1rem;
+            margin: 0px 70px;
+            color: white;
+            text-indent: 2%;
+        }
+
+
+        footer {
+            background-color: #030303;
+            /* height: 233px; */
+        }
+
+        .footer {
+            display: flex;
+            padding: 23px 122px;
+            justify-content: space-evenly;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer>div {
+            width: 250px;
+        }
+
+        .footer ul a {
+            text-decoration: none;
+            color: white;
+        }
+
+        footer .footer-rights {
+            text-align: center;
+            color: gray;
+            padding: 12px 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">Emmanuel Varghese - <span class="yellow">Data Scientist at
+                    Caterpillar Inc.</span>
+            </div>
+            <div class="right">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">About</a></li>
+                    <li><a href="/">Projects</a></li>
+                    <li><a href="/">Contact Me</a></li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="firstSection">
+            <div class="leftSection">
+                Hi , my name is <span class="yellow">Emmanuel,</span>
+                <div> and I am a dedicated and passionate </div>
+                <!-- <div><span class="purple">Data Scientist</span></div> -->
+                <span id="element"></span>
+                <div class="buttons">
+                    <button class="btn">Linkedin</button>
+                    <button class="btn">Visit Github</button>
+                    <button class="btn">Resume</button>
+                </div>
+            </div>
+            <div class="rightSection">
+                <img src="lr_corrected_ash.png" alt="">
+            </div>
+        </section>
+        <hr>
+        <section class="ThirdSection">
+            <h1>About</h1>
+            <div class="tSection">
+                I'm Emmanuel, a seasoned Data Scientist and Automation Specialist with a decade-long journey. At
+                Caterpillar
+                Inc.'s Thiruvallur Facility, I drive transformative projects, fusing data science with industry insight.
+                With a
+                background spanning Global Purchasing - Supplier Quality Assurance and heavy fabrication, I seamlessly
+                integrate
+                domain expertise with advanced analytics. I lead initiatives that optimize processes, ensure efficient
+                maintenance, and elevate production quality. Through workshops, I empower colleagues to harness
+                analytics and
+                automation effectively. My portfolio showcases data science's synergy with industry finesse, from
+                process
+                optimization to enhancing operations. Let's explore the crossroads of data science and manufacturing
+                innovation
+                together.
+            </div>
+        </section>
+        <hr>
+        <section class="SecondSection">
+            <span class="text-gray">What I have done so far</span>
+            <h1>Work Experience</h1>
+            <div class="box">
+                <div class="vertical">
+                    <img class="image-top" img src="career milestone2.png" alt="">
+                    <div class="vertical-title">
+                        Operating Engineer Trainee (2012 - 2014)
+                    </div>
+                    <div class="vertical-desc">
+                        Fitup Team Lead , Fabrication department
+                    </div>
+                    <div class="vertical-desc">
+                        <span class="text-purple">Skills:</span> MIG Welding · Print reading · Fabrication Fitup
+                    </div>
+                </div>
+                <div class="vertical">
+                    <img class="image-top" img src="career milestone2.png" alt="">
+                    <div class="vertical-title">
+                        Supply Quality Analyst (2015 - 2021)
+                    </div>
+                    <div class="vertical-desc">
+                        Supply Quality Engineer & Data Analyst for the Supply Quality , Technical Services -
+                        Caterpillar India Thiruvallur
+                    </div>
+                    <div class="vertical-desc">
+                        <span class="text-purple">Skills:</span> Microsoft Power BI · Data Analysis · SAP · bulit in
+                        quality · Microsoft Office ·
+                        Auditing · Analytical Skills ·
+                        Vendor Management · Supplier Performance · Supplier Audits · Corrective and Preventive
+                        Action (CAPA) · Supplier Quality
+                        Engineering · Supplier Quality
+                    </div>
+                </div>
+                <div class="vertical">
+                    <img class="image-top" img src="career milestone2.png" alt="">
+                    <div class="vertical-title">
+                        Associate Data Scientist (2021 - Present)
+                    </div>
+                    <div class="vertical-desc">
+                        Data Science and Automation - Digital Factory, Technical Services
+                    </div>
+                    <div class="vertical-desc">
+                        <span class="text-purple">Skills:</span> Red Hat Enterprise Linux (RHEL) · Shell Scripting · SQL
+                        · Python (Programming
+                        Language) · Microsoft Power BI ·
+                        Tableau · Data Science · Business Intelligence (BI) · Process Improvement
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+
+        <div class="footer">
+            <div class="footer-first">
+                <h3>Emmanuel's Data Science / Analytics PortFolio</h3>
+            </div>
+            <div class="footer-second">
+                <ul>
+                    <li><a href="/">About</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">Projects</a></li>
+                    <li><a href="/">Contact Me</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-third">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">About</a></li>
+                    <li><a href="/">Projects</a></li>
+                    <li><a href="/">Contact Me</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-fourth">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">About</a></li>
+                    <li><a href="/">Projects</a></li>
+                    <li><a href="/">Contact Me</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="footer-rights">
+            Copyright &#169; www.emmsportfolio.com | All rights reserved
+        </div>
+    </footer>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <!-- Setup and start animation! -->
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Data Engineer', 'Data Scientist'],
+            typeSpeed: 50,
+        });
+    </script>
+</body>
+
+</html>
