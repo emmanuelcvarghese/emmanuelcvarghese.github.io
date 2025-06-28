@@ -213,7 +213,9 @@ body.light-theme .about-content {
 }
 
 body.light-theme .experience-item {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.65);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-left: 4px solid;
     border-image: linear-gradient(135deg, #FF6B35, #7209B7) 1;
@@ -239,7 +241,9 @@ body.light-theme .skill-tag {
 }
 
 body.light-theme .project-card {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.65);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
@@ -279,7 +283,9 @@ body.light-theme .project-tag {
 }
 
 body.light-theme .skill-category {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.65);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
@@ -360,7 +366,7 @@ body.light-theme .footer-bottom {
     display: flex;
     align-items: center;
     position: relative;
-    padding: 0 5%;
+    padding: 80px 5% 0 5%;
     overflow: hidden;
 }
 
@@ -946,6 +952,10 @@ footer {
         gap: 2rem;
     }
 
+    .hero {
+        padding-top: 100px;
+    }
+
     .hero-content h1 {
         font-size: 2.5rem;
     }
@@ -999,6 +1009,14 @@ footer {
 
     .skills-grid {
         grid-template-columns: 1fr;
+    }
+
+    .skill-category h3 {
+        font-size: 1.1rem;
+        line-height: 1.3;
+        word-wrap: break-word;
+        hyphens: auto;
+        margin-bottom: 1rem;
     }
 
     .contact-links {
