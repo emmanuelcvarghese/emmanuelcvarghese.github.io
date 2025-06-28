@@ -1,0 +1,45 @@
+# Development and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backup files
+*.bak
+*_old.*
+*_backup.*
+
+# Logs
+*.log
+
+# Node modules (if any)
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Cache directories
+.cache/
+.parcel-cache/
+
+# Build directories
+dist/
+build/
+
+# Temporary files
+tmp/
+temp/
