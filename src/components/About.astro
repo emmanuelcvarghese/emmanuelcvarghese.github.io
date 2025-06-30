@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+
+// Get about content
+const aboutContent = await getCollection('about');
+const about = aboutContent[0]; // Get the main about content
+---
+
+<section id="about">
+    <div class="container">
+        <h2 class="section-title">{about.data.title}</h2>
+        <div class="about-content">
+            {about.data.paragraphs.map((paragraph) => (
+                <p>{paragraph}</p>
+                <br>
+            ))}
+            
+            {about.data.skills && (
+                <div class="skills-section">
+                    <h3>Core Expertise</h3>
+                    <div class="skills-grid">
+                        {about.data.skills.map((skill) => (
+                            <span class="skill-tag">{skill}</span>
+                        ))}
+                    </div>
+                </div>
+            )}
+            
+            {about.data.achievements && (
+                <div class="achievements-section">
+                    <h3>Key Achievements</h3>
+                    <ul class="achievements-list">
+                        {about.data.achievements.map((achievement) => (
+                            <li>{achievement}</li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import ProjectCard from './ProjectCard.astro';
+
+const projects = await getCollection('projects');
+const sortedProjects = projects.sort((a, b) => a.data.order - b.data.order);
+---
+
+<section id="projects">
+    <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            {sortedProjects.map((project) => (
+                <ProjectCard
+                    title={project.data.title}
+                    description={project.data.description}
+                    tags={project.data.tags}
+                    icon={project.data.icon}
+                    github={project.data.github}
+                    live={project.data.live}
+                />
+            ))}
+        </div>
+    </div>
+</section>

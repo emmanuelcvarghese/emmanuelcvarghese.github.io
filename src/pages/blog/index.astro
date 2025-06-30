@@ -1,0 +1,200 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const blogPosts = await getCollection('blog');
+const sortedPosts = blogPosts
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Layout 
+  title="Blog - Emmanuel Varghese" 
+  description="Insights on data science, manufacturing analytics, and digital transformation from a startup-minded data scientist at CAT Thiruvallur Facility"
+>
+  <section id="blog" style="padding-top: 120px;">
+    <div class="container">
+      <h1 class="section-title">Blog</h1>
+      <p style="text-align: center; max-width: 600px; margin: 0 auto 3rem; font-size: 1.1rem; color: #E6E6FA;">
+        Sharing insights on data science, manufacturing analytics, digital transformation, and the startup mindset in corporate environments.
+      </p>
+      
+      <div class="blog-grid">
+        {sortedPosts.map((post) => (
+          <article class="blog-card">
+            <div class="blog-header">
+              <h2><a href={`/blog/${post.slug}/`}>{post.data.title}</a></h2>
+              <time datetime={post.data.pubDate.toISOString()}>
+                {post.data.pubDate.toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </time>
+            </div>
+            <p class="blog-description">{post.data.description}</p>
+            {post.data.tags && post.data.tags.length > 0 && (
+              <div class="blog-tags">
+                {post.data.tags.map(tag => (
+                  <span class="blog-tag">{tag}</span>
+                ))}
+              </div>
+            )}
+            <a href={`/blog/${post.slug}/`} class="read-more">Read More →</a>
+          </article>
+        ))}
+      </div>
+      
+      {sortedPosts.length === 0 && (
+        <div style="text-align: center; margin: 4rem 0;">
+          <p style="font-size: 1.2rem; color: #E6E6FA;">More blog posts coming soon!</p>
+        </div>
+      )}
+    </div>
+  </section>
+</Layout>
+
+<style>
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.blog-card {
+  background: rgba(230, 230, 250, 0.05);
+  border: 1px solid rgba(230, 230, 250, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #FFD700, #8A2BE2);
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(255, 215, 0, 0.1);
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+.blog-header h2 {
+  margin: 0 0 0.5rem 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  line-height: 1.3;
+}
+
+.blog-header h2 a {
+  color: #F5F5F5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.blog-header h2 a:hover {
+  color: #FFD700;
+}
+
+.blog-header time {
+  color: #FFD700;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.blog-description {
+  margin: 1rem 0 1.5rem 0;
+  line-height: 1.6;
+  color: #E6E6FA;
+}
+
+.blog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.blog-tag {
+  background: rgba(138, 43, 226, 0.1);
+  color: #E6E6FA;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  border: 1px solid rgba(138, 43, 226, 0.3);
+}
+
+.read-more {
+  color: #FFD700;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.read-more:hover {
+  color: #FFF;
+}
+
+/* Light theme support */
+body.light-theme .blog-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .blog-card::before {
+  background: linear-gradient(135deg, #FF6B35, #7209B7);
+}
+
+body.light-theme .blog-card:hover {
+  box-shadow: 0 15px 35px rgba(255, 107, 53, 0.2);
+  border-color: rgba(255, 107, 53, 0.3);
+}
+
+body.light-theme .blog-header h2 a {
+  color: #333333;
+}
+
+body.light-theme .blog-header h2 a:hover {
+  color: #FF6B35;
+}
+
+body.light-theme .blog-header time {
+  color: #FF6B35;
+}
+
+body.light-theme .blog-description {
+  color: #6c757d;
+}
+
+body.light-theme .blog-tag {
+  background: rgba(114, 9, 183, 0.1);
+  color: #7209B7;
+  border: 1px solid rgba(114, 9, 183, 0.3);
+}
+
+body.light-theme .read-more {
+  color: #FF6B35;
+}
+
+body.light-theme .read-more:hover {
+  color: #333333;
+}
+
+@media (max-width: 768px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

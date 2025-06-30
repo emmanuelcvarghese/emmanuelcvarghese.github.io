@@ -1,0 +1,68 @@
+{
+  "$ref": "#/definitions/hero",
+  "definitions": {
+    "hero": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "profileImage": {
+          "type": "string",
+          "default": "/Profile_image.jpg"
+        },
+        "linkedinUrl": {
+          "type": "string"
+        },
+        "githubUrl": {
+          "type": "string"
+        },
+        "floatingCards": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "icon": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "subtitle": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "icon",
+              "title",
+              "subtitle"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "title",
+        "subtitle",
+        "description",
+        "linkedinUrl",
+        "githubUrl"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

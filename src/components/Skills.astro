@@ -1,0 +1,129 @@
+---
+// Skills component
+const skillCategories = [
+    {
+        title: "Data Science & Machine Learning",
+        skills: [
+            "Python Programming",
+            "Machine Learning",
+            "Statistical Analysis",
+            "Azure ML Studio",
+            "Azure AI Studio",
+            "MLOps/DevOps/DataOps",
+            "Predictive Analytics",
+            "Data Modeling"
+        ]
+    },
+    {
+        title: "Innovation & Entrepreneurial Mindset",
+        skills: [
+            "Startup-like Agility",
+            "Rapid Prototyping",
+            "Lean Team Leadership",
+            "Innovation Management",
+            "Cross-functional Collaboration",
+            "Agile Problem Solving",
+            "Digital Transformation"
+        ]
+    },
+    {
+        title: "Business Analysis & Collaboration",
+        skills: [
+            "Requirements Gathering",
+            "Process Flow Design",
+            "Conceptualization & Mockups",
+            "Global Team Collaboration",
+            "Vendor Management",
+            "Stakeholder Engagement",
+            "Project Coordination"
+        ]
+    },
+    {
+        title: "Data Engineering (CAT Thiruvallur Facility)",
+        skills: [
+            "Snowflake Data Warehouse",
+            "Snowflake Data Engineering",
+            "Snowflake SQL & Stored Procedures",
+            "Snowflake Security & Governance",
+            "Azure Databricks",
+            "Data Warehousing",
+            "ETL/ELT Processes"
+        ]
+    },
+    {
+        title: "Business Intelligence & Analytics",
+        skills: [
+            "Power BI Embedded Analytics",
+            "Power BI Custom Visuals",
+            "Tableau",
+            "Manufacturing Analytics",
+            "Inventory Analytics",
+            "Advanced Analytics"
+        ]
+    },
+    {
+        title: "Platform & Cloud Architecture",
+        skills: [
+            "Azure Cloud Platform",
+            "GitHub CI/CD",
+            "Ubuntu Self-Hosted Runners",
+            "Azure Web Apps",
+            "Red Hat Enterprise Linux",
+            "Shell Scripting"
+        ]
+    },
+    {
+        title: "Enterprise Integration",
+        skills: [
+            "SAP Integration",
+            "SAP ME",
+            "PowerAutomate Premium",
+            "SnapLogic",
+            "Microsoft Graph",
+            "Red Hat Enterprise Linux"
+        ]
+    },
+    {
+        title: "AI & Knowledge Systems",
+        skills: [
+            "Neo4j Knowledge Graphs",
+            "Knowledge Graph Embeddings",
+            "Generative AI Tools",
+            "Prompt Engineering",
+            "Azure AI Studio",
+            "Unstructured Data Processing"
+        ]
+    },
+    {
+        title: "Development & Operations",
+        skills: [
+            "Python Programming",
+            "Python Package Development",
+            "SQL & Data Engineering",
+            "Manufacturing Automation",
+            "Figma UI/UX Design",
+            "Business Analysis",
+            "Process Improvement",
+            "Vendor Collaboration"
+        ]
+    }
+];
+---
+
+<section id="skills">
+    <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            {skillCategories.map((category) => (
+                <div class="skill-category">
+                    <h3>{category.title}</h3>
+                    <div class="skills-list">
+                        {category.skills.map((skill) => (
+                            <span class="skill-item">{skill}</span>
+                        ))}
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
