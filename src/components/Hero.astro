@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+
+// Get hero content
+const heroContent = await getCollection('hero');
+const hero = heroContent[0]; // Get the main hero content
+---
+
+<section id="home" class="hero">
+    <div class="hero-container">
+        <div class="hero-content">
+            <h1>{hero.data.subtitle} <span class="highlight">{hero.data.name}</span></h1>
+            <h1>{hero.data.title}</h1>
+            <p class="subtitle">
+                {hero.data.description}
+            </p>
+            <div class="hero-buttons">
+                <a href={hero.data.linkedinUrl} class="btn btn-primary" target="_blank"
+                   rel="noopener">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href={hero.data.githubUrl} class="btn btn-secondary" target="_blank"
+                   rel="noopener">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src={hero.data.profileImage} alt={hero.data.name}>
+        </div>
+    </div>
+
+    <!-- Floating Cards -->
+    {hero.data.floatingCards && hero.data.floatingCards.map((card, index) => (
+        <div class={`floating-card card-${index + 1}`}>
+            <i class={card.icon}></i>
+            <div><strong>{card.title}</strong><br>{card.subtitle}</div>
+        </div>
+    ))}
+</section>

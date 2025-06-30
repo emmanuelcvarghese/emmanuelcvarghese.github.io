@@ -1,0 +1,290 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout 
+  title={`${entry.data.title} - Emmanuel Varghese`}
+  description={entry.data.description}
+>
+  <article class="blog-post" style="padding-top: 120px;">
+    <div class="container">
+      <header class="blog-post-header">
+        <h1 class="blog-post-title">{entry.data.title}</h1>
+        <div class="blog-post-meta">
+          <time datetime={entry.data.pubDate.toISOString()}>
+            {entry.data.pubDate.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </time>
+          <span class="author">by {entry.data.author}</span>
+        </div>
+        {entry.data.tags && entry.data.tags.length > 0 && (
+          <div class="blog-post-tags">
+            {entry.data.tags.map(tag => (
+              <span class="blog-tag">{tag}</span>
+            ))}
+          </div>
+        )}
+      </header>
+      
+      <div class="blog-post-content">
+        <Content />
+      </div>
+      
+      <footer class="blog-post-footer">
+        <div class="back-to-blog">
+          <a href="/blog" class="btn btn-secondary">← Back to Blog</a>
+        </div>
+      </footer>
+    </div>
+  </article>
+</Layout>
+
+<style>
+.blog-post {
+  min-height: 100vh;
+  padding-bottom: 5rem;
+}
+
+.blog-post-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.blog-post-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #FFD700, #8A2BE2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.blog-post-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: #E6E6FA;
+}
+
+.blog-post-meta time {
+  color: #FFD700;
+  font-weight: 500;
+}
+
+.blog-post-tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.blog-tag {
+  background: rgba(138, 43, 226, 0.1);
+  color: #E6E6FA;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  border: 1px solid rgba(138, 43, 226, 0.3);
+}
+
+.blog-post-content {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.blog-post-content :global(h1),
+.blog-post-content :global(h2),
+.blog-post-content :global(h3),
+.blog-post-content :global(h4) {
+  font-family: 'Playfair Display', serif;
+  margin: 2rem 0 1rem 0;
+  color: #FFD700;
+}
+
+.blog-post-content :global(h2) {
+  font-size: 1.8rem;
+  border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+  padding-bottom: 0.5rem;
+}
+
+.blog-post-content :global(h3) {
+  font-size: 1.4rem;
+}
+
+.blog-post-content :global(p) {
+  margin-bottom: 1.5rem;
+}
+
+.blog-post-content :global(ul),
+.blog-post-content :global(ol) {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+.blog-post-content :global(li) {
+  margin-bottom: 0.5rem;
+}
+
+.blog-post-content :global(blockquote) {
+  border-left: 4px solid #FFD700;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #E6E6FA;
+}
+
+.blog-post-content :global(code) {
+  background: rgba(230, 230, 250, 0.1);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: 'Monaco', 'Menlo', monospace;
+  font-size: 0.9rem;
+}
+
+.blog-post-content :global(pre) {
+  background: rgba(230, 230, 250, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 2rem 0;
+  border: 1px solid rgba(230, 230, 250, 0.1);
+}
+
+.blog-post-content :global(pre code) {
+  background: none;
+  padding: 0;
+}
+
+.blog-post-footer {
+  max-width: 800px;
+  margin: 4rem auto 0;
+  text-align: center;
+}
+
+.back-to-blog {
+  margin-bottom: 2rem;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #F5F5F5;
+  border: 2px solid #E6E6FA;
+}
+
+.btn-secondary:hover {
+  background: #E6E6FA;
+  color: #111111;
+}
+
+/* Light theme support */
+body.light-theme .blog-post-title {
+  background: linear-gradient(135deg, #FF6B35, #7209B7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+body.light-theme .blog-post-meta {
+  color: #6c757d;
+}
+
+body.light-theme .blog-post-meta time {
+  color: #FF6B35;
+}
+
+body.light-theme .blog-tag {
+  background: rgba(114, 9, 183, 0.1);
+  color: #7209B7;
+  border: 1px solid rgba(114, 9, 183, 0.3);
+}
+
+body.light-theme .blog-post-content :global(h1),
+body.light-theme .blog-post-content :global(h2),
+body.light-theme .blog-post-content :global(h3),
+body.light-theme .blog-post-content :global(h4) {
+  color: #FF6B35;
+}
+
+body.light-theme .blog-post-content :global(h2) {
+  border-bottom: 2px solid rgba(255, 107, 53, 0.3);
+}
+
+body.light-theme .blog-post-content :global(blockquote) {
+  border-left: 4px solid #FF6B35;
+  color: #6c757d;
+}
+
+body.light-theme .blog-post-content :global(code) {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .blog-post-content :global(pre) {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .btn-secondary {
+  background: transparent;
+  color: #333333;
+  border: 2px solid #6c757d;
+}
+
+body.light-theme .btn-secondary:hover {
+  background: #6c757d;
+  color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  .blog-post-title {
+    font-size: 2rem;
+  }
+  
+  .blog-post-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .blog-post-content {
+    font-size: 1rem;
+  }
+}
+</style>

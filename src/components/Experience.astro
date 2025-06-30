@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+
+const experiences = await getCollection('experience');
+const sortedExperiences = experiences.sort((a, b) => a.data.order - b.data.order);
+---
+
+<section id="experience">
+    <div class="container">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="experience-timeline">
+            {sortedExperiences.map((experience) => (
+                <div class="experience-item">
+                    <div class="experience-date">
+                        {experience.data.startDate} - {experience.data.endDate || 'Present'}
+                    </div>
+                    <div class="experience-content">
+                        <h3>{experience.data.title}</h3>
+                        <p class="company">{experience.data.company}</p>
+                        <p class="description">{experience.data.description}</p>
+                        {experience.data.skills && (
+                            <div class="skills-tags">
+                                {experience.data.skills.map(skill => (
+                                    <span class="skill-tag">{skill}</span>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

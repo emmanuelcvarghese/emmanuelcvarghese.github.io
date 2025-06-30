@@ -1,153 +1,201 @@
-# Emmanuel Varghese - Portfolio Website
+# 🚀 Emmanuel Varghese - Portfolio Website
 
-A modern, professional portfolio website showcasing my expertise as a Data Scientist and Snowflake Data Engineer. Built with clean HTML, CSS, and JavaScript, featuring a responsive design with light/dark theme toggle.
+A modern, dynamic portfolio website built with Astro, featuring content management through Markdown files and automated deployment to GitHub Pages.
 
-## 🚀 Live Website
+**Live Site:** [emmanuelcvarghese.github.io](https://emmanuelcvarghese.github.io)
 
-Visit the live website at: [https://emmanuelcvarghese.github.io](https://emmanuelcvarghese.github.io)
+> ✅ **Migration Complete!** Successfully migrated from static HTML to dynamic Astro with full content management system. All legacy files cleaned up and documentation consolidated.
 
-## 📋 Features
+## ✨ Features
 
-- **Modern Design**: Clean, professional layout with gradient accents and smooth animations
-- **Responsive**: Optimized for desktop, tablet, and mobile devices
-- **Light/Dark Theme**: Toggle between light and dark modes with preferences saved locally
-- **Professional Content**: Authentic LinkedIn-sourced content highlighting real projects and experience
-- **Accessibility**: WCAG compliant with proper ARIA labels and semantic HTML
-- **Fast Loading**: Optimized assets and clean code structure
-- **SEO Friendly**: Proper meta tags and semantic structure
+- 🎯 **Dynamic Content Management** - Hero, About, Projects, Experience, and Blog managed via Markdown
+- 📝 **Blog System** - Full-featured blog with dynamic routing and SEO optimization  
+- 🎨 **Modern Design** - Dark theme with gradient accents and smooth animations
+- 📱 **Responsive** - Mobile-first design that works on all devices
+- ⚡ **Fast Performance** - Static site generation with Astro for optimal speed
+- 🔄 **Auto Deployment** - GitHub Actions workflow for seamless updates
 
-## 🛠️ Technology Stack
-
-- **Frontend**: Pure HTML5, CSS3, JavaScript (ES6+)
-- **Fonts**: Google Fonts (Playfair Display + Inter)
-- **Icons**: Font Awesome 6
-- **Hosting**: GitHub Pages
-- **CI/CD**: GitHub Actions for automatic deployment
-
-## 📁 Project Structure
+## 🏗️ Project Structure
 
 ```text
-├── index.html              # Main HTML file
-├── assets/
-│   ├── css/
-│   │   └── style.css       # Main stylesheet
-│   └── js/
-│       └── main.js         # JavaScript functionality
-├── .github/
-│   └── workflows/
-│       └── deploy.yml      # GitHub Actions deployment
-├── Profile_image.jpg       # Profile photo
-└── README.md              # Project documentation
+├── src/
+│   ├── components/          # Reusable UI components
+│   │   ├── Hero.astro      # Dynamic hero section
+│   │   ├── About.astro     # Dynamic about section  
+│   │   ├── Projects.astro  # Projects showcase
+│   │   ├── Experience.astro # Work experience timeline
+│   │   └── Skills.astro    # Technical skills grid
+│   ├── content/            # Markdown content collections
+│   │   ├── hero/           # Hero section content
+│   │   ├── about/          # About section content
+│   │   ├── blog/           # Blog posts
+│   │   ├── projects/       # Portfolio projects
+│   │   └── experience/     # Work experience
+│   ├── layouts/            # Page layouts
+│   ├── pages/              # Route definitions
+│   │   ├── index.astro     # Homepage
+│   │   └── blog/           # Blog routes
+│   ├── scripts/            # JavaScript files
+│   └── styles/             # CSS styles
+├── public/                 # Static assets
+│   ├── blog/              # Blog images
+│   ├── projects/          # Project images  
+│   └── Profile_image.jpg  # Main profile image
+├── .github/workflows/     # GitHub Actions
+└── docs/                  # Documentation
 ```
 
-## 🎨 Design Features
+## 🚀 Quick Start
 
-### Color Palette
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
 
-- **Primary Gradient**: Gold (#FFD700) to Purple (#8A2BE2)
-- **Background**: Dark (#111111) / Light (#F8F9FA)
-- **Text**: High contrast for accessibility
-- **Accents**: Subtle gradients and hover effects
+### Installation
 
-### Typography
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/emmanuelcvarghese/emmanuelcvarghese.github.io.git
+   cd emmanuelcvarghese.github.io
+   ```
 
-- **Headings**: Playfair Display (Serif) - Professional and elegant
-- **Body Text**: Inter (Sans-serif) - Clean and readable
-- **Responsive**: Uses `clamp()` for fluid typography
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-### Interactive Elements
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
+   Visit `http://localhost:4321` to view the site.
 
-- **Floating Cards**: Animated skill highlights
-- **Hover Effects**: Smooth transitions and micro-interactions
-- **Theme Toggle**: Persistent light/dark mode with smooth transitions
-- **Responsive Navigation**: Optimized for all screen sizes
+## 🧞 Commands
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+
+## 📝 Content Management
+
+### Quick Content Updates
+
+**Update Hero Section:**
+```bash
+# Edit: src/content/hero/main.md
+# Change: name, title, description, social links
+```
+
+**Update About Section:**
+```bash  
+# Edit: src/content/about/main.md
+# Change: paragraphs, skills, achievements
+```
+
+**Add New Blog Post:**
+```bash
+# Create: src/content/blog/my-new-post.md
+# Add images: public/blog/my-new-post/
+```
+
+**Add New Project:**
+```bash
+# Create: src/content/projects/my-project.md
+# Add images: public/projects/my-project/
+```
+
+### Detailed Documentation
+- 📚 [Complete Content Management Guide](./CONTENT_MANAGEMENT_GUIDE.md) - Your one-stop guide for all content management
+- 📊 [Project Status & Migration Details](./PROJECT_STATUS.md)
+- ✅ [Migration Completion Summary](./MIGRATION_COMPLETE.md)
 
 ## 🚀 Deployment
 
-The website is automatically deployed to GitHub Pages using GitHub Actions:
+### Automatic Deployment (Recommended)
+The site automatically deploys to GitHub Pages when you push to the `main` branch.
 
-1. Push to `main` branch triggers the deployment workflow
-2. GitHub Actions builds and deploys the site
-3. Available at `https://emmanuelcvarghese.github.io`
+```bash
+git add .
+git commit -m "Update content"
+git push origin main
+```
 
-### Manual Deployment
+### GitHub Pages Setup
+1. Go to repository **Settings > Pages**
+2. Set **Source** to "GitHub Actions"
+3. The workflow will handle the rest automatically
 
-To deploy manually:
+## �️ Technology Stack
 
-1. Go to repository Settings → Pages
-2. Set Source to "GitHub Actions"
-3. The workflow will automatically deploy on next push
+- **Framework:** [Astro](https://astro.build) - Static site generator
+- **Styling:** Custom CSS with modern features
+- **Content:** Markdown with frontmatter
+- **Deployment:** GitHub Pages with GitHub Actions
+- **Icons:** FontAwesome 6.0.0
+- **Fonts:** Playfair Display & Inter (Google Fonts)
 
-## 💼 Professional Highlights
+## 📂 Content Collections
 
-### Primary Role: Data Scientist
+### Hero (`src/content/hero/`)
+- Personal information and tagline
+- Social media links
+- Floating cards configuration
 
-- Machine Learning and AI solutions
-- Advanced analytics and statistical modeling
-- Azure ML Studio and AI Studio expertise
-- MLOps/DevOps/DataOps practices
+### About (`src/content/about/`)  
+- Professional story
+- Skills and achievements
+- Multiple paragraph support
 
-### Additional Role: Snowflake Data Engineer
+### Blog (`src/content/blog/`)
+- Technical articles and insights
+- SEO-optimized with tags and descriptions
+- Image support with captions
 
-- Enterprise data warehouse architecture
-- Snowflake platform expertise
-- ETL/ELT pipeline development
-- Data governance and security
+### Projects (`src/content/projects/`)
+- Portfolio showcase
+- Detailed project information
+- Technology tags and links
 
-### Innovation & Entrepreneurial Mindset
+### Experience (`src/content/experience/`)
+- Work history and roles
+- Skills and achievements per role
+- Company information and timelines
 
-- Startup-like agility in enterprise environment
-- 4-member Digital Manufacturing Team leadership
-- Rapid prototyping and innovation management
-- Cross-functional collaboration and problem-solving
+## 🎨 Customization
 
-## 📊 Featured Projects
+### Colors & Theme
+Main colors defined in `src/styles/style.css`:
+- Background: `#111111` (Dark)
+- Text: `#F5F5F5` (Light) 
+- Accent: `#FFD700` (Gold)
+- Secondary: `#8A2BE2` (Purple)
 
-1. **Leaders Cockpit** - Power BI Embedded Analytics Platform
-2. **CAT Finance Report Chatbot** - Neo4j Knowledge Graph POC
-3. **Enterprise Data Analytics Platform** - Azure Databricks + Snowflake
-4. **JIS Automation Board** - Manufacturing operations automation
-5. **Plan for Every Part Analytics** - Inventory optimization dashboard
-6. **Engineering Change Management App** - Azure Web App with Figma UI
+### Fonts
+- Headings: `'Playfair Display'` (Serif)
+- Body: `'Inter'` (Sans-serif)
 
-## 🔧 Local Development
+## 📈 Performance
 
-To run locally:
+- ⚡ Static site generation for optimal speed
+- 🖼️ Optimized image loading
+- 📱 Mobile-first responsive design
+- 🔍 SEO-friendly URLs and metadata
 
-1. Clone the repository:
+## 🤝 Contributing
 
-   ```bash
-   git clone https://github.com/emmanuelcvarghese/emmanuelcvarghese.github.io.git
-   ```
-
-2. Open `index.html` in a web browser, or serve with a local server:
-
-   ```bash
-   python -m http.server 8000
-   # or
-   npx live-server
-   ```
-
-3. Visit `http://localhost:8000`
-
-## 📱 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
+This is a personal portfolio, but feel free to:
+- Report bugs or issues
+- Suggest improvements
+- Use as inspiration for your own portfolio
 
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 📞 Contact
-
-- **LinkedIn**: [Emmanuel Varghese](https://linkedin.com/in/emmanuelvarghese)
-- **GitHub**: [emmanuelcvarghese](https://github.com/emmanuelcvarghese)
-- **Email**: [emmanuelcvarghese@gmail.com](mailto:emmanuelcvarghese@gmail.com)
-
 ---
 
-Built with ❤️ by Emmanuel Varghese | Data Scientist & Snowflake Data Engineer
+**Built with ❤️ using Astro** | **Deployed on GitHub Pages**
